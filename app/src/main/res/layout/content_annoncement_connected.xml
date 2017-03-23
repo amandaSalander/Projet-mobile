@@ -8,4 +8,11 @@
     tools:context="com.wasp.amanda.projet_mobile.AnnoncementConnected"
     tools:showIn="@layout/app_bar_annoncement_connected">
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="98dp"
+        tools:layout_editor_absoluteY="89dp" />
 </android.support.constraint.ConstraintLayout>
