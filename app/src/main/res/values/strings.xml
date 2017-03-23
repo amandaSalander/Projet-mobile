@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">LockHomes</string>
+    <string name="auth_failed">failed to authentify</string>
+    <string name="title_activity_annoncement_connected">AnnoncementConnected</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+</resources>
