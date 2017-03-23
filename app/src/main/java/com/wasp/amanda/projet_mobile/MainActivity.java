@@ -7,12 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -26,9 +22,9 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
     private EditText mPasswordField;
 
     //  firebaseAuth init
-    private FirebaseAuth mAuth;
+    static public FirebaseAuth mAuth;
     // firebaseauth listener init
-    private FirebaseAuth.AuthStateListener mAuthListener;
+    static public FirebaseAuth.AuthStateListener mAuthListener;
 
 
     @Override
@@ -75,8 +71,8 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
     }
 
     public void signIn(String email, String password){
-        mEmailField = (EditText) findViewById(R.id.field_email);
-        mPasswordField = (EditText) findViewById(R.id.field_password);
+        mEmailField = (EditText) findViewById(R.id.field_email_account);
+        mPasswordField = (EditText) findViewById(R.id.field_password_account);
 
         if ( email.equals(mEmailField.getText().toString()) && password.equals(mPasswordField.getText().toString())){
             Toast.makeText(this,"Connected :D",Toast.LENGTH_SHORT).show();
