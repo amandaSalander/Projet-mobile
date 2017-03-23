@@ -55,10 +55,19 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
                 });
     }
 
+
     @Override
     public void onClick(View v) {
 //        if (!this.emailField.getText().toString())
-        Toast.makeText(this, "I'm trying to create a user ", Toast.LENGTH_SHORT).show();
-        this.createUser();
+        if (emailField.getText().toString().trim().equalsIgnoreCase("")) {
+            emailField.setError("This field can not be blank");
+        }
+        if (passwordField.getText().toString().trim().equalsIgnoreCase("")) {
+            passwordField.setError("This field can not be blank");
+        }
+        else {
+            Toast.makeText(this, "I'm trying to create a user ", Toast.LENGTH_SHORT).show();
+            this.createUser();
+        }
     }
 }

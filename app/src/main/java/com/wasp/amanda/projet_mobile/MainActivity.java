@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -38,8 +41,8 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         // Views
 //        mStatusTextView = (EditText) findViewById(R.id.status);
 //        mDetailTextView = (EditText) findViewById(R.id.detail);
-//        mEmailField = (EditText) findViewById(R.id.email);
-//        mPasswordField = (EditText) findViewById(R.id.password);
+        mEmailField = (EditText) findViewById(R.id.field_email);
+        mPasswordField = (EditText) findViewById(R.id.field_password);
 //
 //
 //        //buttons
@@ -71,24 +74,50 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
     }
 
     public void signIn(String email, String password){
-        mEmailField = (EditText) findViewById(R.id.field_email_account);
-        mPasswordField = (EditText) findViewById(R.id.field_password_account);
+        mEmailField = (EditText) findViewById(R.id.field_email);
+        mPasswordField = (EditText) findViewById(R.id.field_password);
 
-        if ( email.equals(mEmailField.getText().toString()) && password.equals(mPasswordField.getText().toString())){
-            Toast.makeText(this,"Connected :D",Toast.LENGTH_SHORT).show();
+//        if ( email.equals(mEmailField.getText().toString()) && password.equals(mPasswordField.getText().toString())){
+//            Toast.makeText(this,"Connected :D",Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(MainActivity.this,AnnoncementConnected.class);
 //        intent.putExtra("product",listProduct.get(position));
             startActivity(intent);
 
-        }
-        else{
-            Toast.makeText(this,":( not connected",Toast.LENGTH_SHORT).show();
-        }
+//        }
+//        else{
+//            Toast.makeText(this,":( not connected",Toast.LENGTH_SHORT).show();
+//        }
+    }
+
+
+    public void signInWithEmailPassword(){
+        mAuth.signInWithEmailAndPassword(mEmailField.getText().toString(), mPasswordField.getText().toString())
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
+
+                        // If sign in fails, display a message to the user. If sign in succeeds
+                        // the auth state listener will be notified and logic to handle the
+                        // signed in user can be handled in the listener.
+                        if (!task.isSuccessful()) {
+                            Log.w(TAG, "signInWithEmail:failed", task.getException());
+                            Toast.makeText(MainActivity.this, R.string.auth_failed,
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                        else{
+                            signIn("admin","admin");
+                        }
+
+                        // ...
+                    }
+                });
     }
 
 
     @Override
     public void onClick(View v) {
+
         int i = v.getId();
             if (i==R.id.anonymously){
                 Toast.makeText(this, "I'm searching for a house incognito", Toast.LENGTH_SHORT).show();
@@ -104,7 +133,8 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
             }
             else if (i==R.id.sign_in_with_email_password){
                 Toast.makeText(this, "I'm signing in with the hard way XD", Toast.LENGTH_SHORT).show();
-                this.signIn("admin","admin");
+
+                this.signInWithEmailPassword();
             }
     }
 }
