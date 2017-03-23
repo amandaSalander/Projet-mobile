@@ -38,14 +38,12 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         // init firebaseauth instance
         mAuth = FirebaseAuth.getInstance();
 
-        // Views
-//        mStatusTextView = (EditText) findViewById(R.id.status);
-//        mDetailTextView = (EditText) findViewById(R.id.detail);
+        /* Views*/
+
         mEmailField = (EditText) findViewById(R.id.field_email);
         mPasswordField = (EditText) findViewById(R.id.field_password);
-//
-//
-//        //buttons
+
+        /*buttons*/
         findViewById(R.id.sign_in_with_google).setOnClickListener((View.OnClickListener) this);
         findViewById(R.id.sign_in_with_email_password).setOnClickListener((View.OnClickListener) this);
         findViewById(R.id.anonymously).setOnClickListener((View.OnClickListener) this);
@@ -73,22 +71,12 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
 
     }
 
-    public void signIn(String email, String password){
-        mEmailField = (EditText) findViewById(R.id.field_email);
-        mPasswordField = (EditText) findViewById(R.id.field_password);
+    public void signIn() {
 
-//        if ( email.equals(mEmailField.getText().toString()) && password.equals(mPasswordField.getText().toString())){
-//            Toast.makeText(this,"Connected :D",Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(MainActivity.this,AnnoncementConnected.class);
-//        intent.putExtra("product",listProduct.get(position));
-            startActivity(intent);
+        Intent intent = new Intent(MainActivity.this, AnnoncementConnected.class);
+        startActivity(intent);
 
-//        }
-//        else{
-//            Toast.makeText(this,":( not connected",Toast.LENGTH_SHORT).show();
-//        }
     }
-
 
     public void signInWithEmailPassword(){
         mAuth.signInWithEmailAndPassword(mEmailField.getText().toString(), mPasswordField.getText().toString())
@@ -106,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
                                     Toast.LENGTH_SHORT).show();
                         }
                         else{
-                            signIn("admin","admin");
+                            signIn();
                         }
 
                         // ...
