@@ -8,24 +8,28 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_fav_icon"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-        </activity>
+        android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".MainActivity"></activity>
         <activity
             android:name=".AnnoncementConnected"
             android:label="@string/title_activity_annoncement_connected"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".CreateAccount"></activity>
+        <activity android:name=".CreateAccount" />
         <activity
-            android:name="SplashScreen"
+            android:name=".SplashScreen"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Black.NoTitleBar">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".AnnoncesNonConnectees"
+            android:label="@string/title_activity_annonces_non_connectees"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

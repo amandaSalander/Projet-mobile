@@ -1,0 +1,7 @@
+<Button
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="72dip"
+    android:background="@drawable/rectangle_button_selector"
+    android:textAppearance="?android:textAppearanceLarge"
+    android:textColor="@color/button_text_color"/>

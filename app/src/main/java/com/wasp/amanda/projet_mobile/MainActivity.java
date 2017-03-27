@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -19,9 +21,12 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity implements  View.OnClickListener{
 
     private static final String TAG = "EmailPassword";
+    private final int MAX_BUTTONS = 4;
+    
+    
 
-    private EditText mStatusTextView;
-    private EditText mDetailTextView;
+
+
     private EditText mEmailField;
     private EditText mPasswordField;
 
@@ -29,6 +34,9 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
     static public FirebaseAuth mAuth;
     // firebaseauth listener init
     static public FirebaseAuth.AuthStateListener mAuthListener;
+
+    private ViewGroup buttonsContainer;
+    private Button activeButton=null;
 
 
     @Override
@@ -45,10 +53,47 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         mPasswordField = (EditText) findViewById(R.id.field_password);
 
         /*buttons*/
-        findViewById(R.id.sign_in_with_google).setOnClickListener((View.OnClickListener) this);
-        findViewById(R.id.sign_in_with_email_password).setOnClickListener((View.OnClickListener) this);
-        findViewById(R.id.anonymously).setOnClickListener((View.OnClickListener) this);
-        findViewById(R.id.create_account).setOnClickListener((View.OnClickListener) this);
+//        findViewById(R.id.sign_in_with_google).setOnClickListener((View.OnClickListener) this);
+//        findViewById(R.id.sign_in_with_email_password).setOnClickListener((View.OnClickListener) this);
+//        findViewById(R.id.anonymously).setOnClickListener((View.OnClickListener) this);
+//        findViewById(R.id.create_account).setOnClickListener((View.OnClickListener) this);
+
+
+
+
+        this.buttonsContainer = (ViewGroup) findViewById(R.id.buttonContainer);
+
+        int buttonsSpacing = (int) getResources().getDimension(R.dimen.activity_horizontal_margin);
+        int buttonSize = (int) getResources().getDimension(R.dimen.button_size);
+
+        for (int i = 0; i < MAX_BUTTONS; i++) {
+            Button button;
+//            button = (Button) getLayoutInflater().inflate(R.layout.rectangle_button_sign_in, buttonsContainer, false);
+//            button.setText(R.string.sign_in);
+
+            switch (i){
+                case 0:
+                    button = (Button) getLayoutInflater().inflate(R.layout.rectangle_button_layout, buttonsContainer, false);
+                    button.setText(R.string.create_account);
+                    break;
+                case 1:
+                    button = (Button) getLayoutInflater().inflate(R.layout.rectangle_button_sign_in, buttonsContainer, false);
+                    button.setText(R.string.sign_in);
+                    break;
+                case 2:
+                    button = (Button) getLayoutInflater().inflate(R.layout.rectangle_google, buttonsContainer, false);
+                    button.setText(R.string.sign_in_with_google);
+                    break;
+                default:
+                    button = (Button) getLayoutInflater().inflate(R.layout.rectangle_button_layout, buttonsContainer, false);
+                    button.setText(R.string.continue_without_sign_in);
+            }
+
+            button.setOnClickListener(this);
+            buttonsContainer.addView(button);
+
+
+        }
 
 
         // listening X)
@@ -112,11 +157,48 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
     }
 
 
+
+    private void selectButton(Button button) {
+        if (activeButton != null) {
+            activeButton.setSelected(false);
+            activeButton = null;
+        }
+
+        activeButton = button;
+        button.setSelected(true);
+    }
+
     @Override
     public void onClick(View v) {
 
+        selectButton( (Button)v);
         mEmailField = (EditText) findViewById(R.id.field_email);
         mPasswordField = (EditText) findViewById(R.id.field_password);
+
+        Button b= (Button)v;
+        if (b.getText().toString().equals("Create account")){
+            Toast.makeText(this, "I'm creating an account", Toast.LENGTH_SHORT).show();
+            Intent intentAccount = new Intent(MainActivity.this,CreateAccount.class);
+            startActivity(intentAccount);
+        }
+        else if(b.getText().toString().equals("Sign In")){
+            Toast.makeText(this, "I'm signing in with the hard way XD", Toast.LENGTH_SHORT).show();
+
+            this.signInWithEmailPassword(mEmailField.getText().toString(), mPasswordField.getText().toString());
+        }
+        else if (b.getText().toString().equals("Continue without sign in")){
+            mAuth.signInAnonymously();
+            activeButton=null;
+            selectButton(b);
+            Toast.makeText(this, "I'm searching for a house incognito", Toast.LENGTH_SHORT).show();
+            Intent intentAccount = new Intent(MainActivity.this,AnnoncesNonConnectees.class);
+            startActivity(intentAccount);
+
+        }
+
+
+
+
 
         int i = v.getId();
             if (i==R.id.anonymously){
@@ -137,4 +219,6 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
                 this.signInWithEmailPassword(mEmailField.getText().toString(), mPasswordField.getText().toString());
             }
     }
+
+
 }
