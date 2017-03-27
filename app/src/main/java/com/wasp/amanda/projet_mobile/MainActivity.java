@@ -12,16 +12,26 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.android.gms.auth.api.Auth;
+import com.google.firebase.auth.GoogleAuthProvider;
 
-public class MainActivity extends AppCompatActivity implements  View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements  View.OnClickListener, GoogleApiClient.OnConnectionFailedListener{
 
     private static final String TAG = "EmailPassword";
     private final int MAX_BUTTONS = 4;
+
+    private static final int RC_SIGN_IN = 9001;
     
     
 
@@ -37,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
 
     private ViewGroup buttonsContainer;
     private Button activeButton=null;
+    private GoogleApiClient mGoogleApiClient;
 
 
     @Override
@@ -52,12 +63,18 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         mEmailField = (EditText) findViewById(R.id.field_email);
         mPasswordField = (EditText) findViewById(R.id.field_password);
 
-        /*buttons*/
-//        findViewById(R.id.sign_in_with_google).setOnClickListener((View.OnClickListener) this);
-//        findViewById(R.id.sign_in_with_email_password).setOnClickListener((View.OnClickListener) this);
-//        findViewById(R.id.anonymously).setOnClickListener((View.OnClickListener) this);
-//        findViewById(R.id.create_account).setOnClickListener((View.OnClickListener) this);
 
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+
+        // Build a GoogleApiClient with access to the Google Sign-In API and the
+        // options specified by gso.
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .enableAutoManage(this /* FragmentActivity */, this /* OnConnectionFailedListener */)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .build();
 
 
 
@@ -195,29 +212,80 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
             startActivity(intentAccount);
 
         }
+        else if (b.getText().toString().equals("Sign in with Google")){
+            signInWithGoogle();
+        }
+
+
+    }
+
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+        Log.d(TAG, "onConnectionFailed:" + connectionResult);
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
+    }
 
 
 
+    private void signInWithGoogle() {
+        Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+        startActivityForResult(signInIntent, RC_SIGN_IN);
+    }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
-        int i = v.getId();
-            if (i==R.id.anonymously){
-                Toast.makeText(this, "I'm searching for a house incognito", Toast.LENGTH_SHORT).show();
+        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+        if (requestCode == RC_SIGN_IN) {
+            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+            if (result.isSuccess()) {
+                // Google Sign In was successful, authenticate with Firebase
+                GoogleSignInAccount account = result.getSignInAccount();
+                firebaseAuthWithGoogle(account);
+                signIn();
 
+            } else {
+                // Google Sign In failed, update UI appropriately
+                // ...
+                Toast.makeText(MainActivity.this,"Failed to connect", Toast.LENGTH_SHORT).show();
             }
-            else if (i==R.id.create_account){
-                Toast.makeText(this, "I'm creating an account", Toast.LENGTH_SHORT).show();
-                Intent intentAccount = new Intent(MainActivity.this,CreateAccount.class);
-                startActivity(intentAccount);
-            }
-            else if (i==R.id.sign_in_with_google){
-                Toast.makeText(this, "I'm signing in with Google", Toast.LENGTH_SHORT).show();
-            }
-            else if (i==R.id.sign_in_with_email_password){
-                Toast.makeText(this, "I'm signing in with the hard way XD", Toast.LENGTH_SHORT).show();
+        }
+    }
+    private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
+        Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
 
-                this.signInWithEmailPassword(mEmailField.getText().toString(), mPasswordField.getText().toString());
-            }
+        AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        Log.d(TAG, "signInWithCredential:onComplete:" + task.isSuccessful());
+
+                        // If sign in fails, display a message to the user. If sign in succeeds
+                        // the auth state listener will be notified and logic to handle the
+                        // signed in user can be handled in the listener.
+                        if (!task.isSuccessful()) {
+                            Log.w(TAG, "signInWithCredential", task.getException());
+                            Toast.makeText(MainActivity.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                        // ...
+                    }
+                });
     }
 
 

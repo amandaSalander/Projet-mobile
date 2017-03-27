@@ -15,12 +15,20 @@
       },
       "oauth_client": [
         {
-          "client_id": "669107117520-a8nrkgs20cfjfduk6gh8gj1i8o53o3s9.apps.googleusercontent.com",
+          "client_id": "669107117520-ia7q0udg09p7qnfthrm46vdb3le3tbl6.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "669107117520-c647a7778jf37h94fm4pkf0m5fo2pe3o.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.wasp.amanda.projet_mobile",
             "certificate_hash": "602fb776ee3e60bdc55d0c2d0dce9997063a4cbd"
           }
+        },
+        {
+          "client_id": "669107117520-4m895dd6l0m6vfih95h9pvvfi8k1a6t9.apps.googleusercontent.com",
+          "client_type": 3
         },
         {
           "client_id": "669107117520-lb6k5da0ps06vourjenlq9ovdck3nj8e.apps.googleusercontent.com",
@@ -40,7 +48,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "669107117520-lb6k5da0ps06vourjenlq9ovdck3nj8e.apps.googleusercontent.com",
+              "client_id": "669107117520-ia7q0udg09p7qnfthrm46vdb3le3tbl6.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
