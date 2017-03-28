@@ -13,6 +13,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.wasp.amanda.projet_mobile.fragment_package.AnnoncesGeneral;
+
 public class AnnoncementConnected extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener  {
 
@@ -32,7 +34,12 @@ public class AnnoncementConnected extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-
+        if (savedInstanceState == null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.root_layout, AnnoncesGeneral.newInstance(), "Catalogues")
+                    .commit();
+        }
 
     }
 

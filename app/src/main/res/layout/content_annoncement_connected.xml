@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/root_layout"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.wasp.amanda.projet_mobile.AnnoncementConnected"
     tools:showIn="@layout/app_bar_annoncement_connected">
 
-    <Button
-        android:id="@+id/button2"
+    <fragment
+        android:id="@+id/fragment"
+        android:name="com.wasp.amanda.projet_mobile.fragment_package.AnnoncesGeneral"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="98dp"
-        tools:layout_editor_absoluteY="89dp" />
+        tools:layout_editor_absoluteX="95dp"
+        tools:layout_editor_absoluteY="80dp" />
 </android.support.constraint.ConstraintLayout>

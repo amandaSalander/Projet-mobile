@@ -21,8 +21,8 @@ public class AnnoncesGeneral extends Fragment {
 
     List<String> liste = new ArrayList<String>();
 
-    public AnnoncesGeneral() {
-        // Required empty public constructor
+    public static AnnoncesGeneral newInstance() {
+        return new AnnoncesGeneral();
     }
 
 
