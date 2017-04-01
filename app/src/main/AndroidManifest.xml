@@ -9,7 +9,7 @@
         android:roundIcon="@drawable/ic_fav_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".AnnoncementConnected"
             android:label="@string/title_activity_annoncement_connected"
@@ -29,7 +29,20 @@
         <activity
             android:name=".AnnoncesNonConnectees"
             android:label="@string/title_activity_annonces_non_connectees"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AnnonceListActivity"
+            android:label="@string/title_annonce_list"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".AnnonceDetailActivity"
+            android:label="@string/title_annonce_detail"
+            android:parentActivityName=".AnnonceListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.wasp.amanda.projet_mobile.AnnonceListActivity" />
+        </activity>
     </application>
 
 </manifest>

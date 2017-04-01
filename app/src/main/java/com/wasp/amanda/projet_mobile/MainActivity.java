@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
     private final int MAX_BUTTONS = 4;
 
     private static final int RC_SIGN_IN = 9001;
-    
-    
+
+
 
 
 
@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
 
     public void signIn() {
 
-        Intent intent = new Intent(MainActivity.this, AnnoncementConnected.class);
+        Intent intent = new Intent(MainActivity.this, AnnonceListActivity.class);
         startActivity(intent);
         Toast.makeText(MainActivity.this, "connected hourraaaaa",
                 Toast.LENGTH_SHORT).show();
@@ -208,7 +208,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
             activeButton=null;
             selectButton(b);
             Toast.makeText(this, "I'm searching for a house incognito", Toast.LENGTH_SHORT).show();
-            Intent intentAccount = new Intent(MainActivity.this,AnnoncesNonConnectees.class);
+            Intent intentAccount = new Intent(MainActivity.this,AnnonceListActivity.class);
             startActivity(intentAccount);
 
         }
