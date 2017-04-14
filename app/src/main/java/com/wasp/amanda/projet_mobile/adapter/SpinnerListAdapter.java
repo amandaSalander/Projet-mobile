@@ -1,4 +1,4 @@
-package adapter;
+package com.wasp.amanda.projet_mobile.adapter;
 
 import android.content.Context;
 import android.view.View;

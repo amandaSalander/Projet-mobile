@@ -19,7 +19,7 @@
             <TextView
                 android:id="@+id/RDVnom"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="Sylia Baraka" />
@@ -27,7 +27,7 @@
             <TextView
                 android:id="@+id/RDVdate"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="22/07/2017" />
@@ -35,7 +35,7 @@
             <TextView
                 android:id="@+id/RDVetat"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="DONE" />

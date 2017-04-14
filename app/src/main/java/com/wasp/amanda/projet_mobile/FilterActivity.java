@@ -2,15 +2,12 @@ package com.wasp.amanda.projet_mobile;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Adapter;
-import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import adapter.SpinnerListAdapter;
+import com.wasp.amanda.projet_mobile.adapter.SpinnerListAdapter;
 
 public class FilterActivity extends AppCompatActivity {
 

@@ -27,7 +27,7 @@ import com.wasp.amanda.projet_mobile.services.AnnonceService;
 
 import java.util.List;
 
-import adapter.userActions.AgendaActivity;
+import com.wasp.amanda.projet_mobile.userActions.AgendaActivity;
 
 /**
  * An activity representing a list of Annonces. This activity
@@ -100,19 +100,14 @@ public class AnnonceListActivity extends AppCompatActivity implements Navigation
         Toast.makeText(this,"this is my ref "+a.toString(),Toast.LENGTH_SHORT).show();
 
         TextView textView= (TextView) findViewById(R.id.nomUser);
-//        textView.setText(MainActivity.mAuth.getCurrentUser().toString());
+
 
     }
 
 
     @Override
     public void onBackPressed() {
-//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        if (drawer.isDrawerOpen(GravityCompat.START)) {
-//            drawer.closeDrawer(GravityCompat.START);
-//        } else {
-//            super.onBackPressed();
-//        }
+
     }
 
     @Override
@@ -121,7 +116,6 @@ public class AnnonceListActivity extends AppCompatActivity implements Navigation
         getMenuInflater().inflate(R.menu.annoncement_connected, menu);
         return true;
     }
-//
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

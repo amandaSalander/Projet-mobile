@@ -47,7 +47,7 @@
             android:name=".FilterActivity"
             android:theme="@style/Theme.AppCompat.Dialog" />
         <activity
-            android:name="adapter.userActions.AgendaActivity"
+            android:name=".userActions.AgendaActivity"
             android:theme="@style/AppTheme"></activity>
     </application>
 
