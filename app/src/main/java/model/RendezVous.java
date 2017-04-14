@@ -1,6 +1,8 @@
 package model;
 
-import java.util.Date;
+import android.graphics.drawable.ColorDrawable;
+
+import java.util.Calendar;
 
 /**
  * Created by amanda on 14/04/17.
@@ -8,14 +10,16 @@ import java.util.Date;
 
 public class RendezVous {
 
+    private ColorDrawable RDVcouleur;
     private String RDVnom;
-    private Date RDVdate;
+    private Calendar RDVdate;
     private Boolean RDVetat;
 
-    public RendezVous(String RDVnom, Date RDVdate, Boolean RDVetat) {
+    public RendezVous(String RDVnom, Calendar RDVdate, Boolean RDVetat, ColorDrawable RDVcouleur) {
         this.RDVnom = RDVnom;
         this.RDVdate = RDVdate;
         this.RDVetat = RDVetat;
+        this.RDVcouleur= RDVcouleur;
     }
 
     public String getRDVnom() {
@@ -26,11 +30,11 @@ public class RendezVous {
         this.RDVnom = RDVnom;
     }
 
-    public Date getRDVdate() {
+    public Calendar getRDVdate() {
         return RDVdate;
     }
 
-    public void setRDVdate(Date RDVdate) {
+    public void setRDVdate(Calendar RDVdate) {
         this.RDVdate = RDVdate;
     }
 
@@ -40,5 +44,13 @@ public class RendezVous {
 
     public void setRDVetat(Boolean RDVetat) {
         this.RDVetat = RDVetat;
+    }
+
+    public ColorDrawable getRDVcouleur() {
+        return RDVcouleur;
+    }
+
+    public void setRDVcouleur(ColorDrawable RDVcouleur) {
+        this.RDVcouleur = RDVcouleur;
     }
 }
