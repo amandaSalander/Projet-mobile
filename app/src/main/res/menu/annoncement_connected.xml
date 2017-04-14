@@ -6,11 +6,35 @@
 
     <item
         android:id="@+id/action_sign_out"
+        android:icon="@drawable/ic_fav_icon"
         android:orderInCategory="100"
         android:title="Search"
-        android:icon="@drawable/ic_fav_icon"
         app:showAsAction="ifRoom"
         ></item>
+
+    <item
+        android:id="@+id/agenda"
+        android:orderInCategory="100"
+        android:title="Agenda"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/mesAnnonces"
+        android:orderInCategory="100"
+        android:title="Mes annonces"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/mesRendezVous"
+        android:orderInCategory="100"
+        android:title="Mes rendez vous"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/profilUser"
+        android:orderInCategory="100"
+        android:title="Agenda"
+        app:showAsAction="never"/>
 
 
 </menu>

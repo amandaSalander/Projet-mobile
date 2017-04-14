@@ -8,6 +8,7 @@
     android:layout_height="match_parent"
     android:layout_marginLeft="0dp"
     android:layout_marginRight="0dp"
+    android:background="#263238"
     app:layoutManager="LinearLayoutManager"
     tools:context="com.wasp.amanda.projet_mobile.AnnonceListActivity"
-    tools:listitem="@layout/annonce_list_content" />
+    tools:listitem="@layout/annonce_list_content"/>

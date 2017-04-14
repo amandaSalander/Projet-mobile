@@ -33,7 +33,7 @@
         <activity
             android:name=".AnnonceListActivity"
             android:label="@string/title_annonce_list"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".AnnonceDetailActivity"
             android:label="@string/title_annonce_detail"
@@ -43,6 +43,12 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.wasp.amanda.projet_mobile.AnnonceListActivity" />
         </activity>
+        <activity
+            android:name=".FilterActivity"
+            android:theme="@style/Theme.AppCompat.Dialog" />
+        <activity
+            android:name="adapter.userActions.AgendaActivity"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

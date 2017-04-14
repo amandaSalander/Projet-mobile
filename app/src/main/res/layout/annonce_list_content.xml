@@ -4,15 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginTop="8dp"
     android:background="#FFF"
-    android:orientation="horizontal"
-    android:layout_marginTop="8dp">
+    android:orientation="horizontal">
 
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:cardElevation="4dp">
+        app:cardElevation="4dp"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,7 +26,7 @@
                 android:id="@+id/pic"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:background="@color/colorAccent"
                 android:orientation="vertical">
 
@@ -55,6 +58,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:text="4"
                         android:textColor="#FFF"
                         android:textSize="16sp"
@@ -73,6 +77,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:text="102"
                         android:textColor="#FFF"
                         android:textSize="16sp"
@@ -85,15 +90,15 @@
                 android:id="@+id/details_pic"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2"
+                android:layout_weight="3"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:background="#AEAEAE">
+                    android:background="#AEAEAE"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/price"
@@ -101,7 +106,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:layout_weight="2"
-                        android:gravity="center"
+                        android:gravity="end|center"
                         android:textAppearance="?attr/textAppearanceListItem"
                         android:textSize="22sp" />
 
@@ -111,7 +116,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:gravity="start|center"
                         android:text="DZD"
                         android:textAppearance="?attr/textAppearanceListItem"
                         android:textSize="22sp"/>
@@ -121,7 +126,63 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="2"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/superficie"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="2"
+                        android:gravity="end|center"
+                        android:text="122"
+                        android:textAppearance="?attr/textAppearanceListItem"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/metre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        android:gravity="start|center"
+                        android:text="m2"
+                        android:textAppearance="?attr/textAppearanceListItem"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:id="@+id/nombreChambre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="2dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="2"
+                        android:gravity="end|center"
+                        android:text="5"
+                        android:textAppearance="?attr/textAppearanceListItem"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/chambre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        android:gravity="start|center"
+                        android:text="Chambre(s)"
+                        android:textAppearance="?attr/textAppearanceListItem"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="16sp"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="3"
                     android:orientation="vertical">
 
                     <TextView
@@ -130,8 +191,8 @@
                         android:layout_height="0dp"
                         android:layout_margin="2dp"
                         android:layout_weight="1"
-                        android:text="Adresse"
                         android:gravity="center"
+                        android:text="Adresse"
                         android:textAppearance="?attr/textAppearanceListItem"/>
 
                     <TextView
