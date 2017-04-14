@@ -21,6 +21,7 @@
     <string name="title_annonce_detail">Annonce Detail</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_publish_annonces">PublishAnnoncesActivity</string>
+    <string name="title_activity_create_short_annonce">CreateShortAnnonceActivity</string>
 
     <!--<string name="default_web_client_id">649955808159-a41jfoob0n3ms092b9ts7tgqth6q7los.apps.googleusercontent.com</string>-->
 </resources>
