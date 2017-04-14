@@ -90,7 +90,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="4dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                tools:ignore="RtlHardcoded">
 
                 <TextView
                     android:id="@+id/textView4"
@@ -105,7 +106,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Vente" />
+                    android:text="Vente"
+                    tools:ignore="HardcodedText" />
 
                 <CheckBox
                     android:id="@+id/typeAnnonceLocation"
@@ -200,23 +202,25 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:contentDescription=""
                         android:onClick="importImage"
-                        app:srcCompat="@android:drawable/ic_menu_gallery" />
+                        app:srcCompat="@android:drawable/ic_menu_gallery"
+                        tools:ignore="ContentDescription" />
 
                     <TextView
                         android:id="@+id/imageAnnonces"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:text="Importer les photos de l'annonce"
+                        android:layout_weight="4"
+                        android:text="cliquer sur l'icone pour importer des photos de l'annonce"
                         tools:ignore="HardcodedText" />
 
                     <ImageView
                         android:id="@+id/imgView"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:contentDescription=""
                         app:srcCompat="@drawable/cell_bg"
                         tools:ignore="ContentDescription" />

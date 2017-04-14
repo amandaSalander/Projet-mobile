@@ -14,7 +14,6 @@ import com.wasp.amanda.projet_mobile.R;
 
 public class CreateShortAnnonceActivity extends AppCompatActivity {
 
-    private static final int PICK_IMAGE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,12 +61,12 @@ public class CreateShortAnnonceActivity extends AppCompatActivity {
             if (extras != null) {
                 //Get image
                 Bitmap newProfilePic = extras.getParcelable("data");
-                Toast.makeText(this, "extras != null", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Votre photo a ete correctement importer", Toast.LENGTH_SHORT).show();
 
                 ImageView imageView= (ImageView) findViewById(R.id.imgView);
                 imageView.setImageBitmap(newProfilePic);
             }
-            Toast.makeText(this, "null", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "null", Toast.LENGTH_SHORT).show();
         }
     }
 

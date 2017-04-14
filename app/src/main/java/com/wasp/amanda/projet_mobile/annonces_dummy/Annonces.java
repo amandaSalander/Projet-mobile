@@ -1,5 +1,7 @@
 package com.wasp.amanda.projet_mobile.annonces_dummy;
 
+import com.wasp.amanda.projet_mobile.R;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,13 +16,6 @@ public class Annonces {
     public static final List<AnnoncesItem>  ANNONCES = new ArrayList<AnnoncesItem>();
 
     public static final Map<String, AnnoncesItem> ITEM_MAP = new HashMap<String, AnnoncesItem>();
-
-
-    private static void addItem(AnnoncesItem item) {
-        ANNONCES.add(item);
-        ITEM_MAP.put(item.id, item);
-    }
-
     private static final int COUNT = 25;
 
     static {
@@ -28,6 +23,11 @@ public class Annonces {
         for (int i = 1; i <= COUNT; i++) {
             addItem(createAnnoncesItem(i));
         }
+    }
+
+    private static void addItem(AnnoncesItem item) {
+        ANNONCES.add(item);
+        ITEM_MAP.put(item.id, item);
     }
 
     private static AnnoncesItem createAnnoncesItem(int position) {
@@ -39,7 +39,8 @@ public class Annonces {
                                     "Frantz Fanon, Boumerdes",
                                     "Amanda, ds_baraka@esi.dz",
                                     makeDetail(position),
-                                    makeImages(position)
+                                    makeImages(position),
+                                    "Vente"
                                     );
     }
 
@@ -52,7 +53,7 @@ public class Annonces {
 
     public static List<Integer> makeImages(int position){
         List<Integer> a= new ArrayList<Integer>();
-        a.add(1);
+        a.add(R.drawable.annonces_1);
         a.add(2);
         a.add(3);
         a.add(4);
@@ -70,11 +71,12 @@ public class Annonces {
             public final String propretaire;
             public final String detail;
             public final List<Integer> images = new ArrayList<Integer>();
+            public  final String typeAnnonce;
 
 
 
         public AnnoncesItem(String id, int stars, int views, int price, String region, String types,
-                            String address, String propretaire, String detail, List<Integer> integers) {
+                            String address, String propretaire, String detail, List<Integer> integers, String typeAnnonce) {
             this.id = id;
             this.stars = stars;
             this.views = views;
@@ -84,6 +86,7 @@ public class Annonces {
             this.address = address;
             this.propretaire = propretaire;
             this.detail = detail;
+            this.typeAnnonce= typeAnnonce;
         }
         @Override
         public String toString() {

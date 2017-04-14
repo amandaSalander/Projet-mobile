@@ -25,6 +25,8 @@ public class AgendaActivity extends AppCompatActivity {
 
     public List<RendezVous> listeRendezVous= new ArrayList<RendezVous>();
 
+    public List<RendezVous> listFilter= new ArrayList<RendezVous>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +76,15 @@ public class AgendaActivity extends AppCompatActivity {
 
     }
 
+    public List<RendezVous> filtrerRendezVousMois( int mois){
+
+        for (int i = 0; i <listeRendezVous.size() ; i++) {
+            if (listeRendezVous.get(i).getRDVdate().getTime().getMonth()== mois){
+                listFilter.add(listeRendezVous.get(i));
+            }
+        }
+        return listeRendezVous;
+    }
 
     // simulate Rendezvous data
     //

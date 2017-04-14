@@ -18,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -199,6 +200,8 @@ public class AnnonceListActivity extends AppCompatActivity implements Navigation
             holder.mContentView.setText(mValues.get(position).detail);
             holder.mViewsView.setText(String.valueOf(mValues.get(position).views));
             holder.mStarsView.setText(String.valueOf(mValues.get(position).stars));
+            holder.imageView.setImageResource(R.drawable.annonces_1);
+
 
             holder.mView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -233,6 +236,7 @@ public class AnnonceListActivity extends AppCompatActivity implements Navigation
             public final TextView mStarsView;
             public final TextView mViewsView;
             public final TextView mContentView;
+            public final ImageView  imageView;
             public Annonces.AnnoncesItem mItem;
 
             public ViewHolder(View view) {
@@ -242,6 +246,7 @@ public class AnnonceListActivity extends AppCompatActivity implements Navigation
                 mContentView = (TextView) view.findViewById(R.id.content);
                 mStarsView = (TextView) view.findViewById(R.id.nombre_etoile);
                 mViewsView = (TextView) view.findViewById(R.id.nombre_vue);
+                imageView= (ImageView) view.findViewById(R.id.firstImageAnnonce);
             }
 
             @Override
@@ -250,4 +255,6 @@ public class AnnonceListActivity extends AppCompatActivity implements Navigation
             }
         }
     }
+
+
 }
