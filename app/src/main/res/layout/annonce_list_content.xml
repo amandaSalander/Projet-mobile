@@ -4,9 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="8dp"
-    android:layout_marginRight="8dp"
-    android:layout_marginTop="8dp"
     android:background="#FFF"
     android:orientation="horizontal">
 
@@ -107,22 +104,22 @@
                         android:id="@+id/price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_gravity="center"
                         android:layout_weight="2"
                         android:gravity="end|center"
                         android:textAppearance="?attr/textAppearanceListItem"
-                        android:textSize="22sp" />
+                        android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/currency"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_gravity="center"
                         android:layout_weight="1"
                         android:gravity="start|center"
                         android:text="DZD"
                         android:textAppearance="?attr/textAppearanceListItem"
-                        android:textSize="22sp"
+                        android:textSize="18sp"
                         tools:ignore="HardcodedText" />
 
                 </LinearLayout>
@@ -137,19 +134,19 @@
                         android:id="@+id/superficie"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_gravity="center"
                         android:layout_weight="2"
                         android:gravity="end|center"
                         android:text="122"
                         android:textAppearance="?attr/textAppearanceListItem"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         tools:ignore="HardcodedText" />
 
                     <TextView
                         android:id="@+id/metre"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_gravity="center"
                         android:layout_weight="1"
                         android:gravity="start|center"
                         android:text="m2"
@@ -162,20 +159,19 @@
                         android:id="@+id/nombreChambre"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="2dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_gravity="center"
                         android:layout_weight="2"
                         android:gravity="end|center"
                         android:text="5"
                         android:textAppearance="?attr/textAppearanceListItem"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         tools:ignore="HardcodedText,RtlHardcoded" />
 
                     <TextView
                         android:id="@+id/chambre"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_gravity="center"
                         android:layout_weight="1"
                         android:gravity="start|center"
                         android:text="Chambre(s)"
@@ -197,8 +193,8 @@
                         android:id="@+id/address"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_margin="2dp"
                         android:layout_weight="1"
+                        android:background="#9e9e9e"
                         android:gravity="center"
                         android:text="Adresse"
                         android:textAppearance="?attr/textAppearanceListItem"
