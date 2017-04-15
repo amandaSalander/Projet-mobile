@@ -4,13 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
 
-    <item
-        android:id="@+id/action_sign_out"
-        android:icon="@drawable/ic_fav_icon"
-        android:orderInCategory="100"
-        android:title="Search"
-        app:showAsAction="ifRoom"
-        tools:ignore="HardcodedText"></item>
+
 
     <item
         android:id="@+id/agenda"
@@ -36,9 +30,17 @@
     <item
         android:id="@+id/profilUser"
         android:orderInCategory="100"
-        android:title="Agenda"
+        android:title="Mon Profil"
         app:showAsAction="never"
         tools:ignore="HardcodedText" />
+
+    <item
+        android:id="@+id/action_sign_out"
+        android:icon="@drawable/ic_fav_icon"
+        android:orderInCategory="100"
+        android:title="Se deconnecter"
+        app:showAsAction="never"
+        tools:ignore="HardcodedText"></item>
 
 
 </menu>

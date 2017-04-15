@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +27,7 @@ import com.wasp.amanda.projet_mobile.annonces_dummy.Annonces;
 import com.wasp.amanda.projet_mobile.services.AnnonceService;
 import com.wasp.amanda.projet_mobile.userActions.AgendaActivity;
 import com.wasp.amanda.projet_mobile.userActions.PublishAnnoncesActivity;
+import com.wasp.amanda.projet_mobile.userActions.RendezVousActivity;
 
 import java.util.List;
 
@@ -54,6 +56,22 @@ public class AnnonceListActivity extends AppCompatActivity implements Navigation
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_annonce_list);
+
+        TabHost host = (TabHost)findViewById(R.id.tabHost);
+        host.setup();
+
+        //Tab 1
+        TabHost.TabSpec spec = host.newTabSpec("RDV demanded");
+        spec.setContent(R.id.tab1);
+        spec.setIndicator("Location");
+        host.addTab(spec);
+
+        //Tab 2
+        spec = host.newTabSpec("Location");
+        spec.setContent(R.id.tab2);
+        spec.setIndicator("Vente");
+        host.addTab(spec);
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -142,6 +160,12 @@ public class AnnonceListActivity extends AppCompatActivity implements Navigation
             Toast.makeText(AnnonceListActivity.this, "mes annonces ! X)...sans blague",
                     Toast.LENGTH_SHORT).show();
         }
+        else if(id==R.id.mesRendezVous){
+            Intent intent = new Intent(AnnonceListActivity.this, RendezVousActivity.class);
+            startActivity(intent);
+            Toast.makeText(AnnonceListActivity.this, "mes rendez vous ! X)...sans blague",
+                    Toast.LENGTH_SHORT).show();
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -159,10 +183,6 @@ public class AnnonceListActivity extends AppCompatActivity implements Navigation
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
 
         }
 

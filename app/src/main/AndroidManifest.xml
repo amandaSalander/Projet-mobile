@@ -56,7 +56,10 @@
         <activity
             android:name=".userActions.CreateShortAnnonceActivity"
             android:label="@string/title_activity_create_short_annonce"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".userActions.RendezVousActivity"
+            android:label="Rendez vous" />
     </application>
 
 </manifest>
