@@ -48,6 +48,7 @@
             android:theme="@style/Theme.AppCompat.Dialog" />
         <activity
             android:name=".userActions.AgendaActivity"
+            android:label="Agenda"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".userActions.PublishAnnoncesActivity"
@@ -60,6 +61,10 @@
         <activity
             android:name=".userActions.RendezVousActivity"
             android:label="Rendez vous" />
+        <activity
+            android:name=".userActions.CreateLongAnnonceActivity"
+            android:label="@string/title_activity_create_long_annonce"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

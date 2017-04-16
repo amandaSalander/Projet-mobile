@@ -1,88 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.wasp.amanda.projet_mobile.AnnonceDetailActivity">
+    android:orientation="vertical"
 
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
+
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context="com.wasp.amanda.projet_mobile.AnnonceDetailActivity">
+
+    <LinearLayout
+        android:id="@+id/imagesLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:orientation="horizontal"
+        tools:ignore="DisableBaselineAlignment">
 
         <LinearLayout
-            android:id="@+id/imagesLayout"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="5"
-            android:background="@color/colorAccent"
-            android:orientation="horizontal"
-            tools:ignore="DisableBaselineAlignment">
+            android:id="@+id/arrowLeft"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:alpha="0.6"
+            android:background="#9e9e9e"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:id="@+id/arrowLeft"
+            <ImageView
+                android:id="@+id/imageView3"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:alpha="0.6"
-                android:background="#9e9e9e"
-                android:gravity="center"
-                android:orientation="horizontal">
+                app:srcCompat="@android:drawable/ic_media_rew"
+                tools:ignore="ContentDescription" />
+        </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/imageView3"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:srcCompat="@android:drawable/ic_media_rew"
-                    tools:ignore="ContentDescription" />
-            </LinearLayout>
+        <HorizontalScrollView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="12">
 
             <LinearLayout
                 android:id="@+id/ImageContentLayout"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="8"
-                android:orientation="horizontal">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="10"
+                android:orientation="horizontal"
+                tools:ignore="ObsoleteLayoutParam,ScrollViewSize">
 
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/arrowRight"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:alpha="0.6"
-                android:background="#9e9e9e"
-                android:gravity="center"
-                android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imageView4"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:srcCompat="@android:drawable/ic_media_ff"
+                    android:id="@+id/imageView2"
+                    android:layout_width="300dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/annonces_1"
                     tools:ignore="ContentDescription" />
 
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="300dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/annonces_10"
+                    tools:ignore="ContentDescription" />
 
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="300dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/annonces_2"
+                    tools:ignore="ContentDescription" />
             </LinearLayout>
+        </HorizontalScrollView>
+
+        <LinearLayout
+            android:id="@+id/arrowRight"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:alpha="0.6"
+            android:background="#9e9e9e"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@android:drawable/ic_media_ff"
+                tools:ignore="ContentDescription" />
 
 
         </LinearLayout>
 
+
+    </LinearLayout>
+
         <LinearLayout
             android:id="@+id/detailLayout"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="5"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <Button
@@ -93,17 +120,171 @@
                 android:text="Localiser"
                 tools:ignore="HardcodedText" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                tools:ignore="DisableBaselineAlignment">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageView7"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        app:srcCompat="@android:drawable/btn_star_big_on"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:id="@+id/note"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="5"
+                        android:textSize="16sp"
+                        tools:ignore="HardcodedText" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/superficie"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Superficie"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="16sp"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/superficieEdit"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="122 m2"
+                        android:textSize="16sp"
+                        tools:ignore="HardcodedText" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                tools:ignore="DisableBaselineAlignment">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/vue"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Vue"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="16sp"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/vueEdit"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="102"
+                        android:textSize="16sp"
+                        tools:ignore="HardcodedText" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/prix"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Prix"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="16sp"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/prixEdit"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="25 000 DZD"
+                        android:textSize="16sp"
+                        tools:ignore="HardcodedText" />
+                </LinearLayout>
+            </LinearLayout>
+
             <TextView
-                android:id="@+id/annonce_detail"
-                style="?android:attr/textAppearanceLarge"
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/detail_annonce_view"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:padding="16dp"
+                android:text="Je suis le detail de l'annonce"
                 android:textIsSelectable="true"
                 tools:context="com.wasp.amanda.projet_mobile.AnnonceDetailFragment"
+                tools:ignore="HardcodedText"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="8dp" />
+
+            <TextView
+                android:id="@+id/adresse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Adresse"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/adresseEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Frantz Fanon, Boumerdes"
+                tools:ignore="HardcodedText" />
 
 
         </LinearLayout>
@@ -111,8 +292,7 @@
         <LinearLayout
             android:id="@+id/actionUserLayout"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <Button
@@ -136,4 +316,6 @@
     </LinearLayout>
 
 
-</android.support.constraint.ConstraintLayout>
+
+
+

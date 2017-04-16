@@ -12,10 +12,13 @@ import com.wasp.amanda.projet_mobile.R;
 
 public class PublishAnnoncesActivity extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_publish_annonces);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

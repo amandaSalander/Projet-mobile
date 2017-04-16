@@ -1,7 +1,6 @@
 package com.wasp.amanda.projet_mobile.annonces_dummy;
 
-import com.wasp.amanda.projet_mobile.R;
-
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -40,7 +39,8 @@ public class Annonces {
                                     "Amanda, ds_baraka@esi.dz",
                                     makeDetail(position),
                                     makeImages(position),
-                                    "Vente"
+                                    "Vente",
+                                    103
                                     );
     }
 
@@ -53,30 +53,32 @@ public class Annonces {
 
     public static List<Integer> makeImages(int position){
         List<Integer> a= new ArrayList<Integer>();
-        a.add(R.drawable.annonces_1);
+        a.add(1);
         a.add(2);
         a.add(3);
         a.add(4);
         return a;
     }
 
-    public  static class AnnoncesItem{
+    public  static class AnnoncesItem implements Serializable{
             public final String id;
             public final int stars;
             public final int views;
             public final int price;
-            public  final  String region;
+            public final  String region;
             public final String types;
-            public  final String address;
+            public final String address;
             public final String propretaire;
             public final String detail;
             public final List<Integer> images = new ArrayList<Integer>();
-            public  final String typeAnnonce;
+            public final String typeAnnonce;
+            public final int superficie;
 
 
 
         public AnnoncesItem(String id, int stars, int views, int price, String region, String types,
-                            String address, String propretaire, String detail, List<Integer> integers, String typeAnnonce) {
+                            String address, String propretaire, String detail, List<Integer> integers,
+                            String typeAnnonce, int superficie) {
             this.id = id;
             this.stars = stars;
             this.views = views;
@@ -87,6 +89,7 @@ public class Annonces {
             this.propretaire = propretaire;
             this.detail = detail;
             this.typeAnnonce= typeAnnonce;
+            this.superficie= superficie;
         }
         @Override
         public String toString() {

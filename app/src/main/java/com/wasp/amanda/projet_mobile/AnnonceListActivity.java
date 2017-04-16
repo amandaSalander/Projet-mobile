@@ -29,6 +29,7 @@ import com.wasp.amanda.projet_mobile.userActions.AgendaActivity;
 import com.wasp.amanda.projet_mobile.userActions.PublishAnnoncesActivity;
 import com.wasp.amanda.projet_mobile.userActions.RendezVousActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -40,6 +41,8 @@ import java.util.List;
  * item details side-by-side using two vertical panes.
  */
 public class AnnonceListActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener  {
+
+
 
     /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet
@@ -88,7 +91,7 @@ public class AnnonceListActivity extends AppCompatActivity implements Navigation
         });
 
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar  toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
 
@@ -176,15 +179,29 @@ public class AnnonceListActivity extends AppCompatActivity implements Navigation
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        Toolbar toolbar= (Toolbar) findViewById(R.id.toolbar);
         if (id == R.id.nav_camera) {
             // Handle the camera action
+
+            toolbar.setTitle("les logements");
+
+            View recyclerView = findViewById(R.id.annonce_list);
+            assert recyclerView != null;
+            List<Annonces.AnnoncesItem> list= new ArrayList<Annonces.AnnoncesItem>();
+            Annonces.AnnoncesItem itemTry= new Annonces.AnnoncesItem("1",5,10,10240,"Alger",
+                    "logement","Houari", "Nesrine",
+                    "hello world", null,"location",107);
+            list.add(itemTry);
+            ((RecyclerView) recyclerView).setAdapter(new SimpleItemRecyclerViewAdapter(list));
+
         } else if (id == R.id.nav_gallery) {
-
+            toolbar.setTitle("les villas");
         } else if (id == R.id.nav_slideshow) {
-
+            toolbar.setTitle("les studios");
         } else if (id == R.id.nav_manage) {
-
+            toolbar.setTitle("les appartements");
         }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -215,11 +232,13 @@ public class AnnonceListActivity extends AppCompatActivity implements Navigation
         public void onBindViewHolder(final ViewHolder holder, int position) {
 
 
+
             holder.mItem = mValues.get(position);
             holder.mPriceView.setText(String.valueOf(mValues.get(position).price));
-            holder.mContentView.setText(mValues.get(position).detail);
+            holder.mAdresseView.setText(mValues.get(position).address);
             holder.mViewsView.setText(String.valueOf(mValues.get(position).views));
             holder.mStarsView.setText(String.valueOf(mValues.get(position).stars));
+            holder.mSuperficieView.setText(String.valueOf(mValues.get(position).superficie));
             holder.imageView.setImageResource(R.drawable.annonces_1);
 
 
@@ -229,6 +248,9 @@ public class AnnonceListActivity extends AppCompatActivity implements Navigation
                     if (mTwoPane) {
                         Bundle arguments = new Bundle();
                         arguments.putString(AnnonceDetailFragment.ARG_ITEM_ID, holder.mItem.id);
+                        Context context = v.getContext();
+                        Intent intent = new Intent(context, AnnonceDetailActivity.class);
+                        intent.putExtra("itemDetail", holder.mItem);
                         AnnonceDetailFragment fragment = new AnnonceDetailFragment();
                         fragment.setArguments(arguments);
                         getSupportFragmentManager().beginTransaction()
@@ -238,6 +260,8 @@ public class AnnonceListActivity extends AppCompatActivity implements Navigation
                         Context context = v.getContext();
                         Intent intent = new Intent(context, AnnonceDetailActivity.class);
                         intent.putExtra(AnnonceDetailFragment.ARG_ITEM_ID, holder.mItem.id);
+
+                        intent.putExtra("itemDetail", holder.mItem);
 
                         context.startActivity(intent);
                     }
@@ -255,7 +279,8 @@ public class AnnonceListActivity extends AppCompatActivity implements Navigation
             public final TextView mPriceView;
             public final TextView mStarsView;
             public final TextView mViewsView;
-            public final TextView mContentView;
+            public final TextView mAdresseView;
+            public final TextView mSuperficieView;
             public final ImageView  imageView;
             public Annonces.AnnoncesItem mItem;
 
@@ -263,15 +288,16 @@ public class AnnonceListActivity extends AppCompatActivity implements Navigation
                 super(view);
                 mView = view;
                 mPriceView = (TextView) view.findViewById(R.id.price);
-                mContentView = (TextView) view.findViewById(R.id.content);
+                mAdresseView= (TextView) view.findViewById(R.id.content);
                 mStarsView = (TextView) view.findViewById(R.id.nombre_etoile);
                 mViewsView = (TextView) view.findViewById(R.id.nombre_vue);
+                mSuperficieView= (TextView) view.findViewById(R.id.superficie);
                 imageView= (ImageView) view.findViewById(R.id.firstImageAnnonce);
             }
 
             @Override
             public String toString() {
-                return super.toString() + " '" + mContentView.getText() + "'";
+                return super.toString() + " '" + mAdresseView.getText() + "'";
             }
         }
     }

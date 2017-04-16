@@ -97,6 +97,7 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
+    <string name="title_activity_create_long_annonce">CreateLongAnnonceActivity</string>
 
     <!--<string name="default_web_client_id">649955808159-a41jfoob0n3ms092b9ts7tgqth6q7los.apps.googleusercontent.com</string>-->
 </resources>

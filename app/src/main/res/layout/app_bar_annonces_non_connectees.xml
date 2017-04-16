@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,101 +7,109 @@
     android:orientation="vertical"
     tools:context="com.wasp.amanda.projet_mobile.AnnonceListActivity">
 
-    <android.support.design.widget.AppBarLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:theme="@style/AppTheme.NoActionBar.AppBarOverlay">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.NoActionBar.PopupOverlay" />
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:theme="@style/AppTheme.NoActionBar.AppBarOverlay">
 
-    </android.support.design.widget.AppBarLayout>
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.NoActionBar.PopupOverlay" />
 
-    <TabHost
-        android:id="@+id/tabHost"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="9"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="@+id/appBarLayout"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
-        app:layout_constraintVertical_bias="0.0">
+        </android.support.design.widget.AppBarLayout>
 
-        <LinearLayout
+        <TabHost
+            android:id="@+id/tabHost"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="0dp"
+            android:layout_weight="9"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="@+id/appBarLayout"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+            app:layout_constraintVertical_bias="0.0">
 
-            <TabWidget
-                android:id="@android:id/tabs"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorAccent"></TabWidget>
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <FrameLayout
-                android:id="@android:id/tabcontent"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <LinearLayout
-                    android:id="@+id/tab1"
+                <TabWidget
+                    android:id="@android:id/tabs"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorAccent"></TabWidget>
 
-                    <android.support.design.widget.CoordinatorLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <android.support.design.widget.FloatingActionButton
-                            android:id="@+id/fab"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="bottom|end"
-                            android:layout_margin="@dimen/fab_margin"
-                            app:srcCompat="@android:drawable/ic_dialog_email" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-
-                            <FrameLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="9">
-
-                                <include layout="@layout/annonce_list" />
-                            </FrameLayout>
-
-                        </LinearLayout>
-                    </android.support.design.widget.CoordinatorLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/tab2"
+                <FrameLayout
+                    android:id="@android:id/tabcontent"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent">
 
-                    <TextView
+                    <LinearLayout
+                        android:id="@+id/tab1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="This is tab 2"
-                        tools:ignore="HardcodedText" />
-                </LinearLayout>
+                        android:orientation="vertical">
 
-            </FrameLayout>
-        </LinearLayout>
-    </TabHost>
+                        <android.support.design.widget.CoordinatorLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <FrameLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="9"
+                                    tools:ignore="UselessParent">
+
+                                    <include layout="@layout/annonce_list"
+                                        tools:ignore="TooDeepLayout" />
+                                </FrameLayout>
+
+                            </LinearLayout>
+                        </android.support.design.widget.CoordinatorLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tab2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="This is tab 2"
+                            tools:ignore="HardcodedText" />
+                    </LinearLayout>
+
+                </FrameLayout>
+
+            </LinearLayout>
+        </TabHost>
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@android:drawable/ic_dialog_email" />
 
 
-
-</LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
