@@ -1,10 +1,9 @@
 package com.wasp.amanda.projet_mobile;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.annotation.StringDef;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
@@ -23,28 +23,19 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.android.gms.auth.api.Auth;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 public class MainActivity extends AppCompatActivity implements  View.OnClickListener, GoogleApiClient.OnConnectionFailedListener{
 
     private static final String TAG = "EmailPassword";
-    private final int MAX_BUTTONS = 4;
-
     private static final int RC_SIGN_IN = 9001;
-
-
-
-
-
-    private EditText mEmailField;
-    private EditText mPasswordField;
-
     //  firebaseAuth init
     static public FirebaseAuth mAuth;
     // firebaseauth listener init
     static public FirebaseAuth.AuthStateListener mAuthListener;
-
+    private final int MAX_BUTTONS = 4;
+    private EditText mEmailField;
+    private EditText mPasswordField;
     private ViewGroup buttonsContainer;
     private Button activeButton=null;
     private GoogleApiClient mGoogleApiClient;
@@ -137,6 +128,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
     public void signIn() {
 
         Intent intent = new Intent(MainActivity.this, AnnonceListActivity.class);
+        intent.putExtra("connecter",true);
         startActivity(intent);
         Toast.makeText(MainActivity.this, "connected hourraaaaa",
                 Toast.LENGTH_SHORT).show();
@@ -208,7 +200,8 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
             activeButton=null;
             selectButton(b);
             Toast.makeText(this, "I'm searching for a house incognito", Toast.LENGTH_SHORT).show();
-            Intent intentAccount = new Intent(MainActivity.this,AnnonceListActivity.class);
+            Intent intentAccount = new Intent(MainActivity.this,AnnoncesNonConnectees.class);
+            intentAccount.putExtra("connecter",false);
             startActivity(intentAccount);
 
         }

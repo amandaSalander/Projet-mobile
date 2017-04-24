@@ -19,6 +19,9 @@
         android:id="@+id/imagesLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginTop="8dp"
         android:background="@color/colorAccent"
         android:orientation="horizontal"
         tools:ignore="DisableBaselineAlignment">
@@ -112,13 +115,22 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/localiser"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="localiser"
-                android:text="Localiser"
-                tools:ignore="HardcodedText" />
+                android:layout_height="match_parent"
+                android:background="@color/colorAccent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/localiserContainers"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="4dp"
+                    android:background="@color/colorAccent"
+                    android:orientation="horizontal">
+
+                </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -152,7 +164,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text="5"
-                        android:textSize="16sp"
+                        android:textSize="20sp"
                         tools:ignore="HardcodedText" />
 
                 </LinearLayout>
@@ -171,7 +183,7 @@
                         android:gravity="center"
                         android:text="Superficie"
                         android:textColor="@color/colorAccent"
-                        android:textSize="16sp"
+                        android:textSize="20sp"
                         tools:ignore="HardcodedText" />
 
                     <TextView
@@ -181,7 +193,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text="122 m2"
-                        android:textSize="16sp"
+                        android:textSize="20sp"
                         tools:ignore="HardcodedText" />
                 </LinearLayout>
 
@@ -209,7 +221,7 @@
                         android:gravity="center"
                         android:text="Vue"
                         android:textColor="@color/colorAccent"
-                        android:textSize="16sp"
+                        android:textSize="20sp"
                         tools:ignore="HardcodedText" />
 
                     <TextView
@@ -219,7 +231,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text="102"
-                        android:textSize="16sp"
+                        android:textSize="20sp"
                         tools:ignore="HardcodedText" />
                 </LinearLayout>
 
@@ -237,7 +249,7 @@
                         android:gravity="center"
                         android:text="Prix"
                         android:textColor="@color/colorAccent"
-                        android:textSize="16sp"
+                        android:textSize="20sp"
                         tools:ignore="HardcodedText" />
 
                     <TextView
@@ -247,17 +259,64 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text="25 000 DZD"
-                        android:textSize="16sp"
+                        android:textSize="20sp"
                         tools:ignore="HardcodedText" />
                 </LinearLayout>
             </LinearLayout>
 
             <TextView
+                android:id="@+id/adresse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="16dp"
+                android:text="Adresse"
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp"
+                tools:ignore="HardcodedText,RtlHardcoded" />
+
+            <TextView
+                android:id="@+id/adresseEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="16dp"
+                android:text="Frantz Fanon, Boumerdes"
+                android:textSize="19sp"
+                tools:ignore="HardcodedText" />
+
+
+            <TextView
+                android:id="@+id/proprietaire"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="16dp"
+                android:text="Proprietaire"
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp"
+                tools:ignore="HardcodedText,RtlHardcoded" />
+
+            <TextView
+                android:id="@+id/proprietaireEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="16dp"
+                android:text="Nesrine Zibani"
+                android:textSize="19sp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
                 android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="16dp"
                 android:text="Description"
-                tools:ignore="HardcodedText" />
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp"
+                tools:ignore="HardcodedText,RtlHardcoded"/>
 
             <TextView
                 android:id="@+id/detail_annonce_view"
@@ -267,53 +326,40 @@
                 android:padding="16dp"
                 android:text="Je suis le detail de l'annonce"
                 android:textIsSelectable="true"
+                android:textSize="19sp"
                 tools:context="com.wasp.amanda.projet_mobile.AnnonceDetailFragment"
                 tools:ignore="HardcodedText"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="8dp" />
 
-            <TextView
-                android:id="@+id/adresse"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Adresse"
-                tools:ignore="HardcodedText" />
-
-            <TextView
-                android:id="@+id/adresseEdit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Frantz Fanon, Boumerdes"
-                tools:ignore="HardcodedText" />
-
 
         </LinearLayout>
 
-        <LinearLayout
+    <ListView
+        android:id="@+id/listeCommentaires"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:isScrollContainer="true"/>
+
+    <LinearLayout
+        android:id="@+id/commentaireLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="UselessLeaf">
+
+    </LinearLayout>
+
+    <LinearLayout
             android:id="@+id/actionUserLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <Button
-                android:id="@+id/commenter"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="Commenter"
-                tools:ignore="ButtonStyle,HardcodedText" />
-
-            <Button
-                android:id="@+id/rendezVous"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="Rendez vous !"
-                tools:ignore="ButtonStyle,HardcodedText" />
         </LinearLayout>
 
 
-    </LinearLayout>
+</LinearLayout>
 
 
 

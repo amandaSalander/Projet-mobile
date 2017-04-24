@@ -1,13 +1,13 @@
 package com.wasp.amanda.projet_mobile;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Spinner;
+
+import com.wasp.amanda.projet_mobile.adapter.SpinnerListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import com.wasp.amanda.projet_mobile.adapter.SpinnerListAdapter;
 
 public class FilterActivity extends AppCompatActivity {
 
@@ -33,10 +33,6 @@ public class FilterActivity extends AppCompatActivity {
         SpinnerListAdapter spinnerListAdapter= new SpinnerListAdapter(this,list);
 
         filterRegion.setAdapter(spinnerListAdapter);
-//        SpinnerAdapter spinnerAdapter= new SpinnerAdapter(this, R.layout.support_simple_spinner_dropdown_item, list) {
-//        };
-
-//        filterRegion.setAdapter(spinnerAdapter);
 
 
 

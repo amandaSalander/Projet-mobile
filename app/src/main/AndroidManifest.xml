@@ -28,7 +28,7 @@
         </activity>
         <activity
             android:name=".AnnoncesNonConnectees"
-            android:label="@string/title_activity_annonces_non_connectees"
+            android:label="Les Annonces"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".AnnonceListActivity"
@@ -64,7 +64,11 @@
         <activity
             android:name=".userActions.CreateLongAnnonceActivity"
             android:label="@string/title_activity_create_long_annonce"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".userInformation.ProfilActivity" />
+        <activity android:name=".userInformation.ProfileActivityEdit" />
+        <activity android:name=".userActions.GetRendezVousActivity" />
+        <activity android:name=".userActions.CommenterActivity"></activity>
     </application>
 
 </manifest>

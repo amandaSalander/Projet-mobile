@@ -1,14 +1,12 @@
 package com.wasp.amanda.projet_mobile;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
 
 /**
  * An activity representing a single Annonce detail screen. This
@@ -16,7 +14,9 @@ import android.view.View;
  * item details are presented side-by-side with a list of items
  * in a {@link AnnonceListActivity}.
  */
-public class AnnonceDetailActivity extends AppCompatActivity {
+public class AnnonceDetailActivity extends AppCompatActivity   {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +24,9 @@ public class AnnonceDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_annonce_detail);
         Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
         setSupportActionBar(toolbar);
+
+
+
 
 
 
@@ -56,6 +59,7 @@ public class AnnonceDetailActivity extends AppCompatActivity {
         }
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -73,10 +77,5 @@ public class AnnonceDetailActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void localiser(View v){
-        Uri gmmIntentUri = Uri.parse("geo:0,0?q=1600 Amphitheatre Parkway, Mountain+View, California");
-        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-        mapIntent.setPackage("com.google.android.apps.maps");
-        startActivity(mapIntent);
-    }
+
 }
