@@ -183,7 +183,7 @@
                         android:gravity="center"
                         android:text="Superficie"
                         android:textColor="@color/colorAccent"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         tools:ignore="HardcodedText" />
 
                     <TextView
@@ -340,6 +340,39 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:isScrollContainer="true"/>
+
+    <LinearLayout
+        android:id="@+id/userComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:layout_gravity="center"
+            android:rating="5" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Commentaire" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:padding="5dp"
+            android:inputType="textMultiLine"
+            android:text="Cette maison est tres belle, sur une belle vue, je voudrais connaitre plus de detail s'il vous plait" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/commentaireLayout"

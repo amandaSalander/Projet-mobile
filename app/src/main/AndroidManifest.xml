@@ -2,11 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.wasp.amanda.projet_mobile">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_fav_icon"
+        android:icon="@drawable/ic_logo"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/ic_fav_icon"
+        android:roundIcon="@drawable/ic_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".MainActivity" />
@@ -67,8 +69,10 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".userInformation.ProfilActivity" />
         <activity android:name=".userInformation.ProfileActivityEdit" />
-        <activity android:name=".userActions.GetRendezVousActivity" />
-        <activity android:name=".userActions.CommenterActivity"></activity>
+        <activity
+            android:name=".userActions.GetRendezVousActivity"
+            android:label="Nouveau Rendez vous" />
+        <activity android:name=".userActions.CommenterActivity" />
     </application>
 
 </manifest>

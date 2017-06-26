@@ -61,11 +61,11 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <TextView
+                    <ListView
+                        android:id="@+id/rdv_recieved"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="This is tab 1"
-                        tools:ignore="HardcodedText" />
+                        android:orientation="vertical"></ListView>
 
                 </LinearLayout>
 
@@ -75,11 +75,12 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <TextView
+                    <ListView
+                        android:id="@+id/rdv_sent"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="This is tab 2"
-                        tools:ignore="HardcodedText" />
+                        android:orientation="vertical"></ListView>
+
                 </LinearLayout>
 
             </FrameLayout>
